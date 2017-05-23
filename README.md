@@ -10,11 +10,6 @@ A virtual envirnment for running KYPO games visualizations
 
 **NB.** This is a 64 bit install.  If you have a 32 bit system, this will not work.
 
-# Networking
-
-The Vagrant box is assigned the IP 10.20.30.60.  You can access all the services from this IP address.  It is a good idea to put this into [your hosts file](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) for a dev URL of your project.
-
-
 # How to install
 
  1. Download and install Vagrant from [VagrantUp.com](http://www.vagrantup.com/downloads.html)
@@ -22,7 +17,7 @@ The Vagrant box is assigned the IP 10.20.30.60.  You can access all the services
  3. In the root of the project, type `vagrant up` (this will take a loooong time)
  4. That's it. The app is now running. 
  	* server runs on localhost:5000 (on your host machine)
- 	* clinet runs on localhost: 4201 (on your host machine)
+ 	* client runs on localhost: 4201 (on your host machine)
 
 (your 5000 port is forwarded to 5000 port on the virtual machine,
  your 4201 port is forwarded to 4200 port on the virtual machine)
