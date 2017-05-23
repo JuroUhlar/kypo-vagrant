@@ -21,20 +21,20 @@ The Vagrant box is assigned the IP 10.20.30.60.  You can access all the services
  2. Download and install VirtualBox from [Virtualbox.org](https://www.virtualbox.org/)
  3. In the root of the project, type `vagrant up` (this will take a loooong time)
  4. That's it. The app is now running. 
- ** server runs on localhost:5000 (on your host machine)
- ** clinet runs on localhost: 4201 (on your host machine)
+ 	* server runs on localhost:5000 (on your host machine)
+ 	* clinet runs on localhost: 4201 (on your host machine)
 
 (your 5000 port is forwarded to 5000 port on the virtual machine,
  your 4201 port is forwarded to 4200 port on the virtual machine)
 
-## Pausing the VM s
+## Pausing the VM
 
 * to pause the VM in its current state, use `vagrant suspend`
 * to run it again , use `vagrant up`
-** it should wake up much faster and still be running the client app
-** the server doesn't wake after suspension for some reason, so you have to restart it manually:
-*** ssh into VM: `vagrant ssh`
-*** start server: `/vagrant/runserver.sh`
+    * it should wake up much faster and still be running the client app
+    * the server doesn't wake after suspension for some reason, so you have to restart it manually:
+        * ssh into VM: `vagrant ssh`
+		* start server: `/vagrant/runserver.sh`
 
 ## Stopping the VM 
 
