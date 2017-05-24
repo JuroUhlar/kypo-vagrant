@@ -20,12 +20,12 @@ sudo chown vagrant:vagrant /opt/
 sudo apt-get update
 
 
-echo mysql-server mysql-server/root_password password password | sudo debconf-set-selections
-echo mysql-server mysql-server/root_password_again password password | sudo debconf-set-selections
+# echo mysql-server mysql-server/root_password password password | sudo debconf-set-selections
+# echo mysql-server mysql-server/root_password_again password password | sudo debconf-set-selections
 
 
 ### Install system dependencies
-sudo apt-get install -y build-essential curl gcc g++ git libaio1 libaio-dev nfs-common openssl npm
+sudo apt-get install -y build-essential curl gcc g++ git libaio1 libaio-dev nfs-common openssl
 
 
 ### NodeJS ###
@@ -33,13 +33,13 @@ sudo apt-get install -y build-essential curl gcc g++ git libaio1 libaio-dev nfs-
 
 ### Node 4.4.5
 # Download the binary
-wget http://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.gz -O /tmp/node-v4.4.5-linux-x64.tar.gz
+# wget http://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.gz -O /tmp/node-v4.4.5-linux-x64.tar.gz
 
 # Unpack it
-cd /tmp
-tar -zxvf /tmp/node-v4.4.5-linux-x64.tar.gz
-mv /tmp/node-v4.4.5-linux-x64 /opt/node-v4.4.5-linux-x64
-ln -s /opt/node-v4.4.5-linux-x64 /opt/nodejs
+# cd /tmp
+# tar -zxvf /tmp/node-v4.4.5-linux-x64.tar.gz
+# mv /tmp/node-v4.4.5-linux-x64 /opt/node-v4.4.5-linux-x64
+# ln -s /opt/node-v4.4.5-linux-x64 /opt/nodejs
 
 # Set the node_path
 export NODE_PATH=/opt/nodejs/lib/node_modules
@@ -48,8 +48,17 @@ export NODE_PATH=$NODE_PATH:/opt/dev/lib/node_modules
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 # Install global Node dependencies
-/opt/nodejs/bin/npm install -g n
-/opt/nodejs/bin/npm config set loglevel http
+# /opt/nodejs/bin/npm install -g n
+sudo npm install -g n
+
+# /opt/nodejs/bin/npm config set loglevel http
+sudo npm config set loglevel http
+
+
+# MY NODE INSTALL SHIT
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 
 
@@ -59,7 +68,7 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 
 # First run the command
-export PATH=$PATH:/opt/mongodb/bin:/opt/mysql/server-5.6/bin:/opt/nodejs/bin
+# export PATH=$PATH:/opt/mongodb/bin:/opt/mysql/server-5.6/bin:/opt/nodejs/bin
 export NODE_PATH=/opt/nodejs/lib/node_modules
 export NODE_PATH=$NODE_PATH:/opt/dev/node_modules
 export NODE_PATH=$NODE_PATH:/opt/dev/lib/node_modules
@@ -105,13 +114,27 @@ printf "\n\n--- NodeBox is now built ---\n\n"
 
 
 ### MY STUFF
-sudo npm install -g npm@latest --no-bin-links
+# sudo npm install -g npm@latest --no-bin-links
 sudo npm install -g node-pre-gyp --no-bin-links
 # npm install -g @angular/cli --no-bin-links
 sudo npm install http-server -g
+sudo npm install sqlite3 -g
 
 printf "\n\n--- App prerequisites are now installed ---\n\n"
 
 
-npm install /opt/dev/backend/
-npm start /opt/dev/backend/ > backendlog.txt & http-server /opt/dev/frontend/dist/ -p 4200 > frontendlog.txt & printf "\n\n--- Everything should be running now.  --- \n Server: http://localhost:5000 \n App: http://localhost:4201  \n\n"
+sudo mkdir /home/vagrant/node_modules
+sudo ln -s /home/vagrant/node_modules/ /opt/dev/backend/node_modules
+
+sudo rm -rf /opt/dev/backend/node_modules/*
+cd /opt/dev/backend/ && sudo npm install 
+
+printf "\n\n--- NPM install for the server completed ---\n\n"
+
+# node /opt/dev/backend/index.js & 
+
+
+
+# /vagrant/runall.sh
+
+# cd /opt/dev/backend/ && node index.js &
