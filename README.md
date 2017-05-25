@@ -15,7 +15,7 @@ A virtual envirnment for running KYPO games visualizations
  1. Download and install Vagrant from [VagrantUp.com](http://www.vagrantup.com/downloads.html)
  2. Download and install VirtualBox from [Virtualbox.org](https://www.virtualbox.org/)
  3. In the root of the project, type `vagrant up` (this will take a loooong time)
- 4. Login to the machine by tying `vagrant ssh`
+ 4. Login to the machine by typing `vagrant ssh`
  5. Run the app by typing `runall`
 
 
