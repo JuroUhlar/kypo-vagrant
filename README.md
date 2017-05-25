@@ -18,29 +18,22 @@ A virtual envirnment for running KYPO games visualizations
  4. Login to the machine by tying `vagrant ssh`
  5. Run the app by typing `runall`
 
- That's it. The app is now running. 
- 	* server runs on localhost:5000 (on your host machine)
- 	* client runs on localhost: 4201 (on your host machine)
 
-(your 5000 port is forwarded to 5000 port on the virtual machine,
- your 4201 port is forwarded to 4200 port on the virtual machine)
+ That's it. The app is now running. 
+ 
+ * server runs on localhost:5000 (on your host machine) -> farwarded to port 5000 on the VM
+ * client runs on localhost: 4201 (on your host machine) -> forwarded to 4200 on the VM
 
  You can kill both processes by typing `killall node` (this kills all node processes).
 
-
 ## Suspend, halt or destroy the VM
-
-[Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/teardown.html)
 
 * to pause the VM in its current state, use `vagrant suspend` (in the Vagrant root folder, outside the VM)
 * to halt the VM (as if shutting down the computer), use `vagrant halt`
 * to completely remove the virtual machine type in `vagrant destroy` 
 * to start it again use `vagrant up`
 
-
-* now you have to start both the server and the client manually with a script: `/vagrant/runall.sh`
-
-
+More details in  [Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/teardown.html)
 
 # Shared folders
 
