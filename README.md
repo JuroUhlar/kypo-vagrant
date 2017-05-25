@@ -15,37 +15,36 @@ A virtual envirnment for running KYPO games visualizations
  1. Download and install Vagrant from [VagrantUp.com](http://www.vagrantup.com/downloads.html)
  2. Download and install VirtualBox from [Virtualbox.org](https://www.virtualbox.org/)
  3. In the root of the project, type `vagrant up` (this will take a loooong time)
- 4. That's it. The app is now running. 
+ 4. Login to the machine by tying `vagrant ssh`
+ 5. Run the app by typing `runall`
+
+ That's it. The app is now running. 
  	* server runs on localhost:5000 (on your host machine)
  	* client runs on localhost: 4201 (on your host machine)
 
 (your 5000 port is forwarded to 5000 port on the virtual machine,
  your 4201 port is forwarded to 4200 port on the virtual machine)
 
-## Pausing the VM
+ You can kill both processes by typing `killall node` (this kills all node processes).
 
-* to pause the VM in its current state, use `vagrant suspend`
-* to run it again , use `vagrant up`
-    * it should wake up much faster and still be running the client app
-    * the server doesn't wake after suspension for some reason, so you have to restart it manually:
-        * ssh into VM: `vagrant ssh`
-		* start server: `/vagrant/runserver.sh`
 
-## Stopping the VM 
+## Suspend, halt or destroy the VM
 
+[Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/teardown.html)
+
+* to pause the VM in its current state, use `vagrant suspend` (in the Vagrant root folder, outside the VM)
 * to halt the VM (as if shutting down the computer), use `vagrant halt`
+* to completely remove the virtual machine type in `vagrant destroy` 
 * to start it again use `vagrant up`
+
+
 * now you have to start both the server and the client manually with a script: `/vagrant/runall.sh`
 
-## Removing the VM
-
-* to completely remove the virtual machine type in `vagrant destroy` in the root directory 
-* to rebuild again, use `vagrant up` again (it will take very long again)
 
 
 # Shared folders
 
-The `KypoViz-client` and `KypoViz-server` folders are shared between the host and the virtual machine. Their content can be found on `/opt/dev/` in the virtual machine. That way you can edit the source code in the host, but run the development envinment in vagrant. 
+The `KypoViz-client` and `KypoViz-server` folders are shared between the host and the virtual machine. Their content can be found on `/opt/dev/` in the virtual machine. That way you can edit the source code in the host, but run the development environment in vagrant. 
 
 # SSHing
 

@@ -43,9 +43,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # config.vm.provision :shell,
     #     :keep_color => true,
-    #     :path => "runapps.sh",
-    #     :privileged => true,
-    #     :run => "always"
+    #     :path => "runall.sh",
+    #     :privileged => false
+    #     # :run => "always"
 
 
 end

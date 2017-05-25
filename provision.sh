@@ -120,7 +120,7 @@ sudo npm install -g node-pre-gyp --no-bin-links
 sudo npm install http-server -g
 sudo npm install sqlite3 -g
 
-printf "\n\n--- App prerequisites are now installed ---\n\n"
+printf "\n\n--- App system prerequisites are now installed. Running npm install... ---\n\n"
 
 
 sudo mkdir /home/vagrant/node_modules
@@ -129,10 +129,13 @@ sudo ln -s /home/vagrant/node_modules/ /opt/dev/backend/node_modules
 sudo rm -rf /opt/dev/backend/node_modules/*
 cd /opt/dev/backend/ && sudo npm install 
 
-printf "\n\n--- NPM install for the server completed ---\n\n"
+printf "\n\n--- NPM install for the server completed ---\n Run 'vagrant ssh' to access the VM \n"
 
 # node /opt/dev/backend/index.js & 
 
+export PATH=$PATH:~/bin
+sudo cp /vagrant/runall.sh /bin
+sudo mv /bin/runall.sh /bin/runall
 
 
 # /vagrant/runall.sh
