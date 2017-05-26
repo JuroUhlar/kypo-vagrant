@@ -41,6 +41,12 @@ sudo apt-get install -y build-essential curl gcc g++ git libaio1 libaio-dev nfs-
 # mv /tmp/node-v4.4.5-linux-x64 /opt/node-v4.4.5-linux-x64
 # ln -s /opt/node-v4.4.5-linux-x64 /opt/nodejs
 
+
+# MY NODE INSTALL SHIT
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 # Set the node_path
 export NODE_PATH=/opt/nodejs/lib/node_modules
 export NODE_PATH=$NODE_PATH:/opt/dev/node_modules
@@ -55,10 +61,7 @@ sudo npm install -g n
 sudo npm config set loglevel http
 
 
-# MY NODE INSTALL SHIT
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
 
 
 

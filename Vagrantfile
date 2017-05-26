@@ -36,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     config.vm.provision :shell,
-        :keep_color => true,
+        :keep_color => false,
         :path => "provision.sh",
         :privileged => true
         # :run => "always"
