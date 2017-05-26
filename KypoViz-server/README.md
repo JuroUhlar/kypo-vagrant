@@ -1,9 +1,10 @@
 # Backend REST API for kypo data visualization app
 
 
+
 ## Requirements:
 
-* Node.js
+* Node & NPM
 
 # To run:
 

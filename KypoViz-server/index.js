@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-var events = require('./all-events');
+var events = require('./data/all-events');
 
 // MAKE EJS our view engine
 // views is directory for all template files

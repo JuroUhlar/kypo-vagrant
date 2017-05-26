@@ -1,5 +1,0 @@
-
-> node-js-getting-started@0.2.5 start /opt/dev/backend
-> node index.js
-
-Node app is running on port 5000 0.0.0.0
