@@ -17,11 +17,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.network "forwarded_port",
         guest: 4200,
-        host: 4201
+        host: 4201, 
+        host_ip: "127.0.0.1"
 
     config.vm.network "forwarded_port",
         guest: 5000,
-        host: 5000
+        host: 5000,
+        host_ip: "127.0.0.1"
 
     config.vm.synced_folder "./KypoViz-server", "/opt/dev/backend",
         :nfs => true,
