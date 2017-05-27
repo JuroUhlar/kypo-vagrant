@@ -101,12 +101,12 @@ printf 'export GITAWAREPROMPT=~/.bash/git-aware-prompt\nsource $GITAWAREPROMPT/m
 
 ### Set a message of the day ###
 sudo rm /etc/motd
-sudo cp /vagrant/files/motd.txt /etc/motd
+sudo cp /vagrant/vagrant-scripts/motd.txt /etc/motd
 
 
 ### Test that everything is installed ok ###
 printf "\n\n--- Running post-install checks ---\n\n"
-node /vagrant/files/postInstall.js
+node /vagrant/vagrant-scripts/postInstall.js
 
 
 
@@ -130,14 +130,14 @@ sudo mkdir /home/vagrant/node_modules
 sudo ln -s /home/vagrant/node_modules/ /opt/dev/backend/node_modules
 
 sudo rm -rf /opt/dev/backend/node_modules/*
-cd /opt/dev/backend/ && sudo npm install 
+cd /opt/dev/backend/ && sudo npm install --no-bin-links
 
 printf "\n\n--- NPM install for the server completed ---\n Run 'vagrant ssh' to access the VM \n"
 
 # node /opt/dev/backend/index.js & 
 
 export PATH=$PATH:~/bin
-sudo cp /vagrant/runall.sh /bin
+sudo cp /vagrant/vagrant-scripts/runall.sh /bin
 sudo mv /bin/runall.sh /bin/runall
 
 

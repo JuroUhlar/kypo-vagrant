@@ -27,9 +27,19 @@
   Port: 2222
 
   --- Server ------------------
-  Port: 5000
-  Run: /vagrant/runserver.sh
+  Port: 5000 (host) -> 5000 (guest)
+  Run: node /opt/dev/backend/index.js
 
-  --- Client app ----------------
-  Port: 4200
+  --- Client ----------------
+  Port: 4201 (host) -> 4200 (guest)
+  Run: http-server /opt/dev/frontend/dist/ -p 4200
 
+  --- To start both with a single commnand, use: 
+  
+  `runall`
+
+  --- To kill both with a single command, use: 
+
+  `killall node` 
+
+  -----------------------------------------------------------------------------------
