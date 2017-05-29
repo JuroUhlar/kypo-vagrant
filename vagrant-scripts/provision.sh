@@ -121,7 +121,7 @@ printf "\n\n--- NodeBox is now built ---\n\n"
 sudo npm install -g node-pre-gyp --no-bin-links
 # npm install -g @angular/cli --no-bin-links
 sudo npm install http-server -g
-sudo npm install sqlite3 -g
+sudo npm install sqlite3@3.1.8 -g
 
 printf "\n\n--- App system prerequisites are now installed. Running npm install... ---\n\n"
 
